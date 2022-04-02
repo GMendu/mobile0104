@@ -90,9 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 descer();
               } else if (details.delta.dy > 0) {
                 direita();
-              } else if(details.delta.dy< 0) {
-                esquerda();
-              }
+              } 
             },
             child: Container(
               padding: const EdgeInsets.all(8),
