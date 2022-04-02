@@ -29,8 +29,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int eixoX = 0;
-  int eixoY = 0;
+  int eixoX = 150;
+  int eixoY = 150;
   void subir() {
     setState(() {
       eixoX++;
@@ -61,18 +61,24 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Card(
+      body:Stack( children: [Positioned(
+        left: eixoX.toDouble(),
+        top: eixoY.toDouble(),
+        child: Card(
           elevation: 10.0,
-          shape: CircleBorder(),
+          shape: const CircleBorder(),
           child: Container(
             width: 80.0,
             height: 80.0,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.amber,
               shape: BoxShape.circle,
             ),
-            child: Center(child: Text('PRESS', style: TextStyle())),
-          )),
+          ),
+          ),
+      ),
+      ]
+      ),
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
@@ -80,12 +86,11 @@ class _MyHomePageState extends State<MyHomePage> {
             onPanUpdate: (details) {
               if (details.delta.dx > 0) {
                 subir();
-              } else {
+              } else if (details.delta.dx < 0) {
                 descer();
-              }
-              if (details.delta.dy > 0) {
+              } else if (details.delta.dy > 0) {
                 direita();
-              } else {
+              } else if(details.delta.dy< 0) {
                 esquerda();
               }
             },
