@@ -1,9 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mobile0104">
    <application
-        android:label="mobile0104"
+        android:label="Gerador de cores Aleatórias"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@drawable/ic_shortcut_color_lens">
         <activity
             android:name=".MainActivity"
             android:exported="true"
